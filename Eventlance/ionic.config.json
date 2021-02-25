@@ -1,0 +1,7 @@
+{
+  "name": "Eventlance",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

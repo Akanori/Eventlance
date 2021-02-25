@@ -1,0 +1,16 @@
+{
+    "Custommers": "Custommers",
+    "Events": "Events",
+    "Open-Payments": "Open invoices",
+    "Products": "Products",
+    "Login": "Login",
+    "Register": "Register",
+    "Settings": "Settings",
+    "Welcome": "Welcome",
+    "Logout": "Abmelden",
+    "Reports": "Reports",
+    "Settingspage":{
+        "Language": "Language",
+        "ToggleDark": "Toggle Dark Theme"
+        }
+}

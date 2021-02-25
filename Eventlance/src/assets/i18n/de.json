@@ -1,0 +1,16 @@
+{
+    "Custommers": "Kunden",
+    "Events": "Events",
+    "Open-Payments": "Offene Rechnungen",
+    "Products": "Produkte",
+    "Login": "Anmelden",
+    "Register": "Registieren",
+    "Settings": "Einstellungen",
+    "Welcome": "Willkommen",
+    "Logout": "Abmelden",
+    "Reports": "Berichte",
+    "Settingspage":{
+    "Language": "Sprache",
+    "ToggleDark": "Dunkler Modus"
+    }
+}
