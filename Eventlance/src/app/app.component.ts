@@ -21,7 +21,7 @@ export class AppComponent {
   public appPages = [
     { title: 'Events', url: '/events', icon: 'home' },
     { title: 'Custommers', url: '/custommers', icon: 'people' },
-    { title: 'Open Payments', url: '/open-payments', icon: 'cash' },
+    { title: 'Open-Payments', url: '/open-payments', icon: 'cash' },
     { title: 'Products', url: '/products', icon: 'cart' },
     { title: 'Reports', url: '/reports', icon: 'stats-chart' },
     { title: 'Settings', url: '/settings', icon: 'settings' },
