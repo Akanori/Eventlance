@@ -12,4 +12,7 @@ export class WelcomePage implements OnInit {
   ngOnInit() {
   }
 
+  proceedToLogin(){
+    window.location.reload();
+  }
 }

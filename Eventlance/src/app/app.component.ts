@@ -49,7 +49,7 @@ export class AppComponent {
   }
 
   checkSidemenuDisplay(url: string) {
-    let removeSidemenuForURLs = ['/login', '/register', '/willkommen'];
+    let removeSidemenuForURLs = ['/login', '/register', '/welcome'];
     if (removeSidemenuForURLs.includes(url)) {
       this.menuCtrl.enable(false);
     }
