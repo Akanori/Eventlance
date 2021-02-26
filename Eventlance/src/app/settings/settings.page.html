@@ -11,7 +11,7 @@
   <ion-list>
     <ion-item lines="full">
       <ion-label>{{ 'Settingspage.Language' | translate }}</ion-label>
-      <ion-select [(ngModel)]="language" (ionChange)="switchLanguage()">>
+      <ion-select [(ngModel)]="language" (ionChange)="switchLanguage()" okText="Ok" cancelText="{{'Cancle' | translate}}">
         <ion-select-option value="en">English</ion-select-option>
         <ion-select-option value="de">Deutsch</ion-select-option>
       </ion-select>

@@ -12,5 +12,6 @@
     "Settingspage":{
     "Language": "Sprache",
     "ToggleDark": "Dunkler Modus"
-    }
+    },
+    "Cancle": "Abbrechen"
 }

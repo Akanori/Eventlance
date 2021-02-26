@@ -45,6 +45,7 @@ export class AppComponent {
     });
 
     this.checkTheme();
+    this.checkLanguage();
   }
 
   checkSidemenuDisplay(url: string) {
@@ -69,12 +70,23 @@ export class AppComponent {
     });
   }
 
+  checkLanguage(){
+    this.storage.get('language').then((val) => {
+      if(val == null){
+        this.translate.setDefaultLang('en');
+        this.storage.set('language', 'en');
+      }else{
+        if (val == 'en') { this.translate.setDefaultLang('en'); }
+        else { this.translate.setDefaultLang('de'); }
+      }
+    });
+  }
+
   initializeApp() {
-    //this.platform.ready().then(() => {
+    this.platform.ready().then(() => {
     //  this.statusBar.styleDefault();
     //  this.splashScreen.hide();
     //  this.menuCtrl.enable(false);
-    //});
-    this.translate.setDefaultLang('en');
+    });
   }
 }

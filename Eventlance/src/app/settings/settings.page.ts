@@ -22,7 +22,6 @@ export class SettingsPage implements OnInit {
   constructor(private translateService: TranslateService, private theme: ThemeService, private storage: Storage) { }
 
   ngOnInit() {
-    
     this.storage.get('theme').then((val)=>{
       if (val == 'dark') { 
         this.theme.enableDark();
@@ -30,10 +29,16 @@ export class SettingsPage implements OnInit {
       }
       else { this.theme.enableLight(); }
     });
+
+    this.storage.get('language').then((val)=>{ 
+      this.translateService.use(val);
+      this.language = this.translateService.currentLang; 
+    });
   }
 
   switchLanguage() {
     this.translateService.use(this.language);
+    this.storage.set('language', this.language);
   }
 
   changeTheme(event){

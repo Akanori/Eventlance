@@ -12,5 +12,6 @@
     "Settingspage":{
         "Language": "Language",
         "ToggleDark": "Toggle Dark Theme"
-        }
+        },
+    "Cancle": "Cancle"
 }
