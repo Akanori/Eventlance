@@ -13,5 +13,10 @@
         "Language": "Language",
         "ToggleDark": "Toggle Dark Theme"
         },
+    "Loginpage": {
+        "Username": "Username",
+        "Password": "Password",
+        "Dont-have-acc": "You don't have an Account?"
+    },
     "Cancle": "Cancle"
 }
