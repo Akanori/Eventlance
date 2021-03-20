@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../_core/auth.service';
+import { User } from '../_types/user';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() { }
+  public registerForm: FormGroup;
+  user = {} as User;
+
+  constructor(private router: Router, private auth: AuthService, private formBuilder: FormBuilder) {
+    this.registerForm = this.formBuilder.group({
+      displayName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmpassword: ['', [Validators.required, Validators.minLength(6)]],
+      terms: [false, Validators.requiredTrue]
+    });
+  }
 
   ngOnInit() {
   }
 
+  async register() {
+    if (this.registerForm.valid) {
+      this.auth.createUserWithEmailAndPassword({
+        displayName: this.registerForm.get('username').value,
+        email: this.registerForm.get('email').value,
+        password: this.registerForm.get('password').value
+      }, '/login');
+      this.registerForm.reset();
+    }
+  }
+
+  toLogin() {
+    this.router.navigate(['login']);
+  }
 }

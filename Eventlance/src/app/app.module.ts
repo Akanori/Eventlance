@@ -9,12 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 // AngularFire2 importieren
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard'
 
 // Environments importieren
 import { environment } from "../environments/environment";
+
+// Guard für Willkommensseite
+import { WelcomeGuard } from './_core/welcome.guard';
 
 //Multilanguage
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -44,7 +48,10 @@ import { IonicStorageModule } from '@ionic/storage';
       }
     }),
     IonicStorageModule.forRoot()],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AngularFireAuthGuard,
+    WelcomeGuard
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

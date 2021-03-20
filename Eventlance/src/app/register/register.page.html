@@ -1,9 +1,86 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>{{ 'Register' | translate }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <form [formGroup]="registerForm" (keydown.enter)="register()">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-img [src]="'../../assets/logo/eventlance.png'">
+        </ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-text color="dark">
+          <h1>{{ 'Register' | translate }}</h1>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">{{ 'AuthPages.Username' | translate }}</ion-label>
+          <ion-input type="text" formControlName="username" name="username"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">{{ 'AuthPages.Email' | translate }}</ion-label>
+          <ion-input type="email" formControlName="email" name="email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">{{ 'AuthPages.Password' | translate }}</ion-label>
+          <ion-input type="password" formControlName="password" name="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">{{ 'AuthPages.Confirm_Password' | translate }}</ion-label>
+          <ion-input type="password" formControlName="confirmpassword"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-checkbox slot="start" formControlName="terms"></ion-checkbox>
+          <ion-text color="dark">
+            <p>{{ 'AuthPages.Agree_Terms' | translate }}</p>
+          </ion-text>  
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button (click)="register()" [disabled]="!registerForm.valid || this.registerForm.get('password').value != this.registerForm.get('confirmpassword').value" expand="block" color="primary">
+          {{ 'Register' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="8">
+        <ion-text color="medium">
+          <p>{{ 'AuthPages.Have-acc' | translate }}</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="4">
+        <ion-text color="primary">
+          <ion-button (click)="toLogin()" expand="block" fill="clear" shape="round" class="btn_right">
+            {{ 'Login' | translate }}
+          </ion-button>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
 </ion-content>
+

@@ -1,9 +1,60 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>{{ 'Login' | translate }}</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-img [src]="image"></ion-img>
+  <form [formGroup]="loginForm" (keydown.enter)="doLogin()">
+  <ion-grid class="ion-text-center gridstyle">
+    <ion-row>
+      <ion-col size="12">
+        <ion-img [src]="'../../assets/logo/eventlance.png'">
+        </ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-text color="dark">
+          <h1>{{ 'Login' | translate }}</h1>
+        </ion-text>
+        <ion-text color="medium">
+          <p>{{ 'AuthPages.Welcometext' | translate }}</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">{{ 'AuthPages.Email' | translate }}</ion-label>
+          <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item>
+          <ion-label position="floating">{{ 'AuthPages.Password' | translate }}</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button [disabled]="!loginForm.valid" (click)="doLogin()" expand="block">
+          {{ 'Login' | translate }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="8">
+        <ion-text color="medium" class="ion-text-start">
+          <p>{{ 'AuthPages.Dont-have-acc' | translate }}</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="4">
+          <ion-button (click)="toRegister()" expand="block" fill="clear" shape="round" class="btn_right">
+            {{ 'Register' | translate }}
+          </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </form>
 </ion-content>
