@@ -18,5 +18,9 @@
         "Password": "Passwort",
         "Dont-have-acc": "Sie haben noch keinen Account?"
     },
+    "EventsPage":{
+        "Visitors": "Besucher",
+        "Earned": "Verdient"
+    },
     "Cancle": "Abbrechen"
 }

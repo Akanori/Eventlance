@@ -30,10 +30,10 @@ export class RegisterPage implements OnInit {
   async register() {
     if (this.registerForm.valid) {
       this.auth.createUserWithEmailAndPassword({
-        displayName: this.registerForm.get('username').value,
+        displayName: this.registerForm.get('displayName').value,
         email: this.registerForm.get('email').value,
         password: this.registerForm.get('password').value
-      }, '/login');
+      }, '/events');
       this.registerForm.reset();
     }
   }

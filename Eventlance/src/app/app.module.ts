@@ -12,7 +12,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireAuthGuard } from '@angular/fire/auth-guard'
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 // Environments importieren
 import { environment } from "../environments/environment";
@@ -39,6 +40,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

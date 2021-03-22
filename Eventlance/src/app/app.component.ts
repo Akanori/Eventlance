@@ -13,6 +13,8 @@ import { Storage } from '@ionic/storage';
 import { ThemeService } from './services/theme.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+import { first } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
@@ -42,7 +44,6 @@ export class AppComponent {
   ) {
     this.initializeApp();
     this.checkSidemenuDisplay(router.url);
-    this.loadUserdata();
   }
   ngOnInit() {
     this.router.events.subscribe((event: RouterEvent) => {
@@ -91,13 +92,19 @@ export class AppComponent {
   }
 
   async loadUserdata(){
-    await this.afAuth.currentUser.then(val =>{
-      console.log(val);
-      if (val != null) {
-        this.userData.displayName = "vv";
-    }
-    });
+    const user = await this.getUserData();
+    if (user) {
+      this.userData.displayName = user.displayName;
+      this.userData.email = user.email;
+    } else {
+      console.log('No User Found');
+   }
   }
+
+  getUserData() {
+    return this.afAuth.authState.pipe(first()).toPromise();
+ }
+ 
 
   initializeApp() {
     this.platform.ready().then(() => {

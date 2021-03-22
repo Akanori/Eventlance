@@ -7,7 +7,7 @@ import { WelcomeGuard } from "./_core/welcome.guard";
 import { LogoutComponent } from './logout/logout';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToRoot = () => redirectLoggedInTo(['']);
+const redirectLoggedInToRoot = () => redirectLoggedInTo(['events']);
 
 const routes: Routes = [
   {

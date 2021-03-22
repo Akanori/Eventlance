@@ -11,17 +11,18 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private toast: ToastController, private menuCtrl: MenuController) { }
 
-  async loginWithEmailAndPassword (user: User, redirectToURL?: string) {
+  async loginWithEmailAndPassword(user: User, redirectToURL?: string) {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(user.email, user.password);
-      if(result) {
+      if (result) {
         // Logged in
-        if(redirectToURL) {
+        if (redirectToURL) {
           this.router.navigateByUrl(redirectToURL);
+
         }
       }
     }
-    catch(e) {
+    catch (e) {
       this.toast.create({
         message: `Fehler beim Login!`,
         duration: 3000
@@ -30,11 +31,11 @@ export class AuthService {
     }
   }
 
-  async createUserWithEmailAndPassword (user: User, redirectToURL?: string) {
+  async createUserWithEmailAndPassword(user: User, redirectToURL?: string) {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
 
-      if(result) {
+      if (result) {
         await (await this.afAuth.currentUser).updateProfile({
           displayName: user.displayName,
           photoURL: ''
@@ -48,11 +49,11 @@ export class AuthService {
         }).then(toast => toast.present());
 
       }
-      if(redirectToURL) {
+      if (redirectToURL) {
         this.router.navigateByUrl(redirectToURL);
       }
     }
-    catch(e) {
+    catch (e) {
       console.log(e);
       this.toast.create({
         message: `Registrierung fehlgeschlagen!`,
@@ -60,12 +61,12 @@ export class AuthService {
       }).then(toast => toast.present());
     }
   }
-  
+
   logout() {
     this.menuCtrl.enable(false);
     this.afAuth.signOut().then(() => {
-        console.log("User succesfully logged out!");
-        this.router.navigateByUrl('/login');
-      });
+      console.log("User succesfully logged out!");
+      this.router.navigateByUrl('/login');
+    });
   }
 }
